@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>🦸‍♂️ Siêu Nhân Auto Click Game 🦸‍♂️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🦸‍♂️ Siêu Nhân Auto Click Game 🦸‍♂️</h1>
+  <div class="score-container">
+    <div id="score">0</div>
+    <button id="clickButton">💥 Đấm Siêu Nhân 💥</button>
+    <button id="resetButton">🔄 Reset</button>
+  </div>
+
+  <div id="shop">
+    <h2>🛒 Cửa Hàng Siêu Năng Lực 🛒</h2>
+    <div class="shop-item">
+      <button id="buyMorePerClick">💪 +1 điểm mỗi đấm (50 điểm)</button>
+    </div>
+    <div class="shop-item">
+      <button id="buyDoublePoints">⚔️ Nhân đôi sức mạnh đấm (150 điểm)</button>
+    </div>
+    <div class="shop-item">
+      <button id="buyAutoClick">🤖 Mua Tự Đấm (200 điểm)</button>
+    </div>
+    <div class="shop-item">
+      <button id="buyFasterAuto">⚡ Tăng tốc Tự Đấm (300 điểm)</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

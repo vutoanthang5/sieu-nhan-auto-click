@@ -1,0 +1,60 @@
+body {
+  font-family: "Arial Black", Gadget, sans-serif;
+  background: #0d0d0d;
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+h1 {
+  color: #00ffcc;
+  font-size: 36px;
+  text-shadow: 2px 2px 4px #000;
+}
+.score-container {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+  gap: 10px;
+}
+#score {
+  font-size: 48px;
+  color: #00ffcc;
+  min-width: 80px;
+  text-align: right;
+}
+button {
+  font-size: 16px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #ff0000;
+  color: white;
+  transition: 0.2s;
+  box-shadow: 0 4px 0 #990000;
+}
+button:hover {
+  background: #cc0000;
+}
+#resetButton {
+  background: #555;
+  box-shadow: 0 4px 0 #222;
+}
+#resetButton:hover {
+  background: #777;
+}
+#shop {
+  margin-top: 30px;
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 12px;
+  width: 320px;
+}
+.shop-item {
+  margin: 10px 0;
+}
+.shop-item button {
+  width: 100%;
+}

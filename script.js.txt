@@ -1,0 +1,96 @@
+let score = 0;
+let pointsPerClick = 1;
+let autoSpeed = 1000;
+let autoClicker = null;
+let hasAutoClick = false;
+
+const scoreDisplay = document.getElementById("score");
+const clickButton = document.getElementById("clickButton");
+const resetButton = document.getElementById("resetButton");
+const buyMorePerClick = document.getElementById("buyMorePerClick");
+const buyDoublePoints = document.getElementById("buyDoublePoints");
+const buyAutoClick = document.getElementById("buyAutoClick");
+const buyFasterAuto = document.getElementById("buyFasterAuto");
+
+function updateScore() {
+  scoreDisplay.textContent = score;
+}
+
+clickButton.addEventListener("click", () => {
+  score += pointsPerClick;
+  updateScore();
+  // Hiệu ứng đổi màu siêu nhân
+  scoreDisplay.style.color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+});
+
+resetButton.addEventListener("click", () => {
+  if (confirm("Bạn chắc chắn muốn reset điểm số?")) {
+    score = 0;
+    pointsPerClick = 1;
+    autoSpeed = 1000;
+    hasAutoClick = false;
+    clearInterval(autoClicker);
+    autoClicker = null;
+    updateScore();
+    alert("🔄 Điểm số đã được reset!");
+  }
+});
+
+buyMorePerClick.addEventListener("click", () => {
+  if (score >= 50) {
+    score -= 50;
+    pointsPerClick += 1;
+    updateScore();
+    alert("💪 Sức mạnh đấm tăng thêm 1 điểm!");
+  } else {
+    alert("Bạn không đủ điểm!");
+  }
+});
+
+buyDoublePoints.addEventListener("click", () => {
+  if (score >= 150) {
+    score -= 150;
+    pointsPerClick *= 2;
+    updateScore();
+    alert("⚔️ Sức mạnh đấm đã nhân đôi!");
+  } else {
+    alert("Bạn không đủ điểm!");
+  }
+});
+
+buyAutoClick.addEventListener("click", () => {
+  if (score >= 200) {
+    score -= 200;
+    hasAutoClick = true;
+    if (autoClicker === null) {
+      autoClicker = setInterval(() => {
+        score += pointsPerClick;
+        updateScore();
+      }, autoSpeed);
+    }
+    updateScore();
+    alert("🤖 Tự đấm đã được kích hoạt!");
+  } else {
+    alert("Bạn không đủ điểm!");
+  }
+});
+
+buyFasterAuto.addEventListener("click", () => {
+  if (score >= 300) {
+    if (!hasAutoClick) {
+      alert("Bạn cần mua Tự Đấm trước!");
+      return;
+    }
+    score -= 300;
+    autoSpeed /= 2;
+    clearInterval(autoClicker);
+    autoClicker = setInterval(() => {
+      score += pointsPerClick;
+      updateScore();
+    }, autoSpeed);
+    updateScore();
+    alert("⚡ Tốc độ Tự Đấm đã tăng!");
+  } else {
+    alert("Bạn không đủ điểm!");
+  }
+});
